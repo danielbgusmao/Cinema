@@ -6,23 +6,23 @@
 
  Esse projeto é composto por dois produtos o server **Cinema** e o client **CinemaClient**. O server é um produto baseado em WebApi e o client consome seus serviços.
 
-- Link do Cinema: https://github.com/danielbgusmao/Cinema
+- **Link do Server: Cinema:** https://github.com/danielbgusmao/Cinema
 
-- Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
+- **Link do Client: CinemaClient:** https://github.com/danielbgusmao/CinemaClient
 
 
 
--- 1) Criar uma base de dados no Sql Server.
+- 1) Criar uma base de dados no Sql Server.
 
--- 2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
+- 2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
 
-3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
+- 3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
 
-3.1) "Add-Migration Teste"
+- 3.1) "Add-Migration Teste"
 
-3.2) "Update-Database"
+- 3.2) "Update-Database"
 
-4) Executar o script para criação das funções na base de dados:
+- 4) Executar o script para criação das funções na base de dados:
 
 ```bash
 
@@ -57,18 +57,18 @@ CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2,
 	
 ```
 
-5) Execute o script de criação de um usuário para autenticar na aplicação CinemaClient:
+- 5) Execute o script de criação de um usuário para autenticar na aplicação CinemaClient:
 
 ```bash
 
 INSERT INTO Usuario (Id, Nome, Email, Senha) VALUES (NEWID(),'Seu nome','seuemail@gmail.com','123456');
 
 ```
-6) As salas serão automaticamente criadas pelo serviço "VerificarEPopularTabela" ao acessar o menu "Sala" ou "Sessão".
+- 6) As salas serão automaticamente criadas pelo serviço "VerificarEPopularTabela" ao acessar o menu "Sala" ou "Sessão".
 
 
-7) Depois de seguir os passos anteriores execute no seu Visual Studio a aplicação Cinema e posteriormente a CinemaClient.
+- 7) Depois de seguir os passos anteriores execute no seu Visual Studio a aplicação Cinema e posteriormente a CinemaClient.
 
 
-8) Para qualquer dúvida, crítica ou sugestão. Por gentileza envie-me mensagem no LinkedIn: https://www.linkedin.com/in/daniel-gusm%C3%A3o-a2b2b011/
+- 8) Para qualquer dúvida, crítica ou sugestão. Por gentileza envie-me mensagem no LinkedIn: https://www.linkedin.com/in/daniel-gusm%C3%A3o-a2b2b011/
 
