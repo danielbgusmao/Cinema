@@ -16,13 +16,13 @@
 
 **2)** Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
 
-- 3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
+**3)** No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
 
-- 	3.1) "Add-Migration Teste"
+**3.1)** "Add-Migration Teste"
 
-- 	3.2) "Update-Database"
+**3.2)** "Update-Database"
 
-- 4) Executar o script para criação das funções na base de dados:
+**4) Executar o script para criação das funções na base de dados:
 
 ```bash
 
@@ -64,10 +64,10 @@ CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2,
 INSERT INTO Usuario (Id, Nome, Email, Senha) VALUES (NEWID(),'Seu nome','seuemail@gmail.com','123456');
 
 ```
-- 6) As salas serão automaticamente criadas pelo serviço "VerificarEPopularTabela" ao acessar o menu "Sala" ou "Sessão".
+**6)** As salas serão automaticamente criadas pelo serviço "VerificarEPopularTabela" ao acessar o menu "Sala" ou "Sessão".
 
 
-- 7) Depois de seguir os passos anteriores execute no seu Visual Studio a aplicação Cinema e posteriormente a CinemaClient.
+**7)** Depois de seguir os passos anteriores execute no seu Visual Studio a aplicação Cinema e posteriormente a CinemaClient.
 
 # Autor
 
