@@ -1,6 +1,6 @@
 # Cinema
 
-https://github.com/danielbgusmao/Cinema/blob/main/LICENCE
+[!NMP](https://img.shields.io/npm/l/react)https://github.com/danielbgusmao/Cinema/blob/main/LICENCE
 
 # Sobre o projeto
 
