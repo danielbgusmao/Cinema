@@ -1,0 +1,12 @@
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\bin\Debug\net6.0\Cinema.Infra.CrossCutting.deps.json
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\bin\Debug\net6.0\Cinema.Infra.CrossCutting.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\bin\Debug\net6.0\Cinema.Infra.CrossCutting.pdb
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.csproj.AssemblyReference.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.AssemblyInfo.cs
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\refint\Cinema.Infra.CrossCutting.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\Cinema.Infra.CrossCutting.pdb
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.CrossCutting\obj\Debug\net6.0\ref\Cinema.Infra.CrossCutting.dll

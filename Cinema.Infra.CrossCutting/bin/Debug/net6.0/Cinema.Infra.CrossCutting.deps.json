@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Cinema.Infra.CrossCutting/1.0.0": {
+        "runtime": {
+          "Cinema.Infra.CrossCutting.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cinema.Infra.CrossCutting/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

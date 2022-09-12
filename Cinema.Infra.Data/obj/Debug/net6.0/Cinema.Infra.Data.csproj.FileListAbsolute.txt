@@ -1,0 +1,17 @@
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\bin\Debug\net6.0\Cinema.Infra.Data.deps.json
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\bin\Debug\net6.0\Cinema.Infra.Data.runtimeconfig.json
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\bin\Debug\net6.0\Cinema.Infra.Data.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\bin\Debug\net6.0\Cinema.Infra.Data.pdb
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\bin\Debug\net6.0\Cinema.Domain.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\bin\Debug\net6.0\Cinema.Domain.pdb
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.AssemblyInfo.cs
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.csproj.CopyComplete
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\refint\Cinema.Infra.Data.dll
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.pdb
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\Cinema.Infra.Data.genruntimeconfig.cache
+C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Infra.Data\obj\Debug\net6.0\ref\Cinema.Infra.Data.dll
