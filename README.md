@@ -12,9 +12,9 @@
 
 
 
-- 1) Criar uma base de dados no Sql Server.
+**1)** Criar uma base de dados no Sql Server.
 
-- 2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
+**2)** Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
 
 - 3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
 
@@ -57,7 +57,7 @@ CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2,
 	
 ```
 
-- 5) Execute o script de criação de um usuário para autenticar na aplicação CinemaClient:
+**5)** Execute o script de criação de um usuário para autenticar na aplicação CinemaClient:
 
 ```bash
 
