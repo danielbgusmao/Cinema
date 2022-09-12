@@ -22,7 +22,7 @@
 
 **3.2)** "Update-Database"
 
-**4) Executar o script para criação das funções na base de dados:
+**4)** Executar o script para criação das funções na base de dados:
 
 ```bash
 
