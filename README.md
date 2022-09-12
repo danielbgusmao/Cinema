@@ -18,9 +18,9 @@
 
 - 3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
 
-- 3.1) "Add-Migration Teste"
+- 	3.1) "Add-Migration Teste"
 
-- 3.2) "Update-Database"
+- 	3.2) "Update-Database"
 
 - 4) Executar o script para criação das funções na base de dados:
 
@@ -69,6 +69,9 @@ INSERT INTO Usuario (Id, Nome, Email, Senha) VALUES (NEWID(),'Seu nome','seuemai
 
 - 7) Depois de seguir os passos anteriores execute no seu Visual Studio a aplicação Cinema e posteriormente a CinemaClient.
 
+# Autor
 
-- 8) Para qualquer dúvida, crítica ou sugestão. Por gentileza envie-me mensagem no LinkedIn: https://www.linkedin.com/in/daniel-gusm%C3%A3o-a2b2b011/
+Daniel Bringel Gusmão.
+
+https://www.linkedin.com/in/daniel-gusm%C3%A3o-a2b2b011/
 
