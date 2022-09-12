@@ -4,15 +4,15 @@
 
 # Sobre o projeto
 
- Esse projeto é composto por dois produtos o server (Cinema) e o client (CinemaClient). O server é um produto baseado em WebApi e o client consome seus serviços.
+ Esse projeto é composto por dois produtos o server **Cinema** e o client **CinemaClient**. O server é um produto baseado em WebApi e o client consome seus serviços.
 
-##Link do Cinema: https://github.com/danielbgusmao/Cinema
+- Link do Cinema: https://github.com/danielbgusmao/Cinema
 
-##Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
+- Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
 
-1) Criar uma base de dados no Sql Server.
+##1) Criar uma base de dados no Sql Server.
 
-2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
+##2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
 
 3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
 
