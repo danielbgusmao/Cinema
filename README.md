@@ -10,9 +10,11 @@
 
 - Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
 
-##1) Criar uma base de dados no Sql Server.
 
-##2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
+
+-- 1) Criar uma base de dados no Sql Server.
+
+-- 2) Alterar as configurações do arquivo ~\Cinema\Cinema.Service\Settings.cs com as credenciais de acordo com o servidor Sql Server desejado.
 
 3) No projeto 4.1 Cinema.Infra.Data execute os comandos (sem aspas):
 
