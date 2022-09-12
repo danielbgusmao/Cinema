@@ -30,27 +30,28 @@ AS
 BEGIN
     Declare @duracao varchar(5);
     SELECT @duracao = fi.Duracao from Filme fi
-    where fi.Id = @filmeId
-    RETURN  @duracao
+		where fi.Id = @filmeId
+		RETURN  @duracao
 END
 GO
-CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2, @filmeId UNIQUEIDENTIFIER, @salaId UNIQUEIDENTIFIER)
+CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2, 
+		@filmeId UNIQUEIDENTIFIER, @salaId UNIQUEIDENTIFIER)
 	RETURNS TABLE
 	AS
 	RETURN(
-	select se.Id,
-	se.DataInicio,
-	se.DataFim,
-	fi.Duracao
-	from Sessao se
-	INNER JOIN Filme fi on se.FilmeId = fi.Id
+		select se.Id,
+		se.DataInicio,
+		se.DataFim,
+		fi.Duracao
+		from Sessao se
+		INNER JOIN Filme fi on se.FilmeId = fi.Id
 
 	where SalaId = @salaId 
-	AND
-	((se.DataInicio >= @dataInicio
-	AND se.DataInicio <= @dataFim) OR
-	(se.DataFim >= @dataInicio
-	AND se.DataFim <= @dataFim)))
+		AND
+		((se.DataInicio >= @dataInicio
+		AND se.DataInicio <= @dataFim) OR
+		(se.DataFim >= @dataInicio
+		AND se.DataFim <= @dataFim)))
 	
 ```
 
