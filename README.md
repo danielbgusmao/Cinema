@@ -1,6 +1,6 @@
 # Cinema
 
-https://github.com/danielbgusmao/Cinema/blob/main/LICENCE
+[!NMP](https://img.shields.io/npm/l/react)https://github.com/danielbgusmao/Cinema/blob/main/LICENCE
 
 # Sobre o projeto
 
@@ -22,7 +22,7 @@ Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
 
 4) Executar o script para criação das funções na base de dados:
 
--------------------------------------------- INICIO DO SCRIPT ----------------------------------------------------------------
+```bash
 
 CREATE FUNCTION fn_DuracaoFilme(@filmeId UNIQUEIDENTIFIER)
 RETURNS varchar(5)
@@ -52,16 +52,15 @@ CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2, 
 	(se.DataFim >= @dataInicio
 	AND se.DataFim <= @dataFim)))
 	
---------------------------------------------- FINAL DO SCRIPT ----------------------------------------------------------------
+```
 
 5) Execute o script de criação de um usuário para autenticar na aplicação CinemaClient:
 
--------------------------------------------- INICIO DO SCRIPT ----------------------------------------------------------------
+```bash
 
 INSERT INTO Usuario (Id, Nome, Email, Senha) VALUES (NEWID(),'Seu nome','seuemail@gmail.com','123456');
 
---------------------------------------------- FINAL DO SCRIPT ----------------------------------------------------------------
-
+```
 6) As salas serão automaticamente criadas pelo serviço "VerificarEPopularTabela" ao acessar o menu "Sala" ou "Sessão".
 
 
