@@ -6,9 +6,9 @@
 
  Esse projeto é composto por dois produtos o server (Cinema) e o client (CinemaClient). O server é um produto baseado em WebApi e o client consome seus serviços.
 
-Link do Cinema: https://github.com/danielbgusmao/Cinema
+##Link do Cinema: https://github.com/danielbgusmao/Cinema
 
-Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
+##Link do CinemaClient: https://github.com/danielbgusmao/CinemaClient
 
 1) Criar uma base de dados no Sql Server.
 
