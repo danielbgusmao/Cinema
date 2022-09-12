@@ -26,11 +26,9 @@ BEGIN
     Declare @duracao varchar(5);
     SELECT @duracao = fi.Duracao from Filme fi
     where fi.Id = @filmeId
-
     RETURN  @duracao
 END
 GO
-
 CREATE FUNCTION fn_SugestaoDeSessoes(@dataInicio DATETIME2, @dataFim DATETIME2, @filmeId UNIQUEIDENTIFIER, @salaId UNIQUEIDENTIFIER)
 	RETURNS TABLE
 	AS
