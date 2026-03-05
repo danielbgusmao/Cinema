@@ -1,13 +1,10 @@
-﻿using Cinema.Application.Models;
+﻿using Cinema.Application.Commands.Filme;
+using Cinema.Application.Models;
+using Cinema.Application.Queries.Filme;
 using Cinema.Domain.Entities;
-using Cinema.Domain.Interfaces;
-using Cinema.Service.Validators;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Net;
 using System.Web.Http.Cors;
 
 namespace Cinema.Application.Controllers
@@ -17,79 +14,75 @@ namespace Cinema.Application.Controllers
     [Route("[controller]")]
     public class FilmeController : ControllerBase
     {
-        private readonly IFilmeService _filmeService;
+        private readonly IMediator _mediator;
         
-        public FilmeController(IFilmeService filmeService)
+        public FilmeController(IMediator mediator)
         {
-            _filmeService = filmeService;
+            _mediator = mediator;
         }
 
         [Authorize]
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Execute(() => _filmeService.Get());
+            return await Execute(async () => await _mediator.Send(new GetAllFilmesQuery()));
         }
 
         [Authorize]
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return Execute(() => _filmeService.GetById(id));
+            return await Execute(async () => await _mediator.Send(new GetFilmeByIdQuery(id)));
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult Post(Filme filme)
+        public async Task<IActionResult> Post(Filme filme)
         {
-            return Execute(() => _filmeService.Insert(filme));
+            var command = new CreateFilmeCommand(filme.Titulo, filme.Imagem, filme.Descricao, filme.Duracao);
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [Route("TituloEmUso")]
         [HttpPost]
-        public IActionResult TituloEmUso(FilmeTituloEmUsoViewModel filmeTituloEmUso)
+        public async Task<IActionResult> TituloEmUso(FilmeTituloEmUsoViewModel filmeTituloEmUso)
         {
-            Filme filme = new()
-            {
-                Id = filmeTituloEmUso.Id,
-                Titulo = filmeTituloEmUso.Titulo
-            };
-
-            return Execute(() => _filmeService.TituloEmUso(filme));
+            var command = new VerificarFilmeTituloEmUsoCommand(filmeTituloEmUso.Id, filmeTituloEmUso.Titulo);
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [HttpPut]
-        public IActionResult Put(Filme filme)
+        public async Task<IActionResult> Put(Filme filme)
         {
-            return Execute(() => _filmeService.Update(filme));
+            var command = new UpdateFilmeCommand(filme.Id, filme.Titulo, filme.Imagem, filme.Descricao, filme.Duracao);
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            Execute(() =>
+            await Execute(async () =>
             {
-                _filmeService.Delete(id);
+                await _mediator.Send(new DeleteFilmeCommand(id));
                 return true;
             });
 
             return new NoContentResult();
         }
 
-        private IActionResult Execute(Func<object> func)
+        private async Task<IActionResult> Execute(Func<Task<object>> func)
         {
             try
             {
-                var result = func();
-
+                var result = await func();
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
     }

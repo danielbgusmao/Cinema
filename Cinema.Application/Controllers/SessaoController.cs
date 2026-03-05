@@ -1,16 +1,11 @@
-﻿using Cinema.Application.Models;
+﻿using Cinema.Application.Commands.Sessao;
+using Cinema.Application.Models;
+using Cinema.Application.Queries.Sessao;
 using Cinema.Domain.Entities;
-using Cinema.Domain.Interfaces;
-using Cinema.Service.Validators;
+using Cinema.Domain.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Net;
-using System.Web.Http.Cors;
-using Cinema.Domain.Models;
-
 
 namespace Cinema.Application.Controllers
 {
@@ -18,71 +13,89 @@ namespace Cinema.Application.Controllers
     [Route("[controller]")]
     public class SessaoController : ControllerBase
     {
-        private readonly ISessaoService _sessaoService;
+        private readonly IMediator _mediator;
+        private readonly Cinema.Domain.Interfaces.ISessaoService _sessaoService;
         
-        public SessaoController(ISessaoService sessaoService)
+        public SessaoController(IMediator mediator, Cinema.Domain.Interfaces.ISessaoService sessaoService)
         {
+            _mediator = mediator;
             _sessaoService = sessaoService;
         }
 
         [Authorize]
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Execute(() => _sessaoService.Get());
+            return await Execute(async () => await _mediator.Send(new GetAllSessoesQuery()));
         }
 
         [Authorize]
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            return Execute(() => _sessaoService.GetById(id));
+            return await Execute(async () => await _mediator.Send(new GetSessaoByIdQuery(id)));
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create(Sessao sessao)
+        public async Task<IActionResult> Create(Sessao sessao)
         {
             if (sessao == null)
                 return NotFound();
 
-            var retorno = Execute(() => _sessaoService.Insert(sessao));
+            var command = new CreateSessaoCommand(
+                sessao.DataInicio == default ? DateTime.Now : sessao.DataInicio,
+                sessao.DataFim ?? DateTime.Now,
+                sessao.ValorIngresso ?? 0,
+                sessao.TipoAnimacao,
+                sessao.TipoAudio,
+                sessao.FilmeId,
+                sessao.SalaId);
 
-            return retorno;
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [HttpPut]
-        public IActionResult Update(Sessao sessao)
+        public async Task<IActionResult> Update(Sessao sessao)
         {
-            return Execute(() => _sessaoService.Update(sessao));
+            var command = new UpdateSessaoCommand(
+                sessao.Id,
+                sessao.DataInicio == default ? DateTime.Now : sessao.DataInicio,
+                sessao.DataFim ?? DateTime.Now,
+                sessao.ValorIngresso ?? 0,
+                sessao.TipoAnimacao,
+                sessao.TipoAudio,
+                sessao.FilmeId,
+                sessao.SalaId);
+
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-
-            Execute(() =>
+            await Execute(async () =>
             {
-                _sessaoService.Delete(id);
+                await _mediator.Send(new DeleteSessaoCommand(id));
                 return true;
             });
 
             return new NoContentResult();
         }
 
-        private IActionResult Execute(Func<object> func)
+        private async Task<IActionResult> Execute(Func<Task<object>> func)
         {
             try
             {
-                var result = func();
+                var result = await func();
 
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
 
@@ -134,6 +147,20 @@ namespace Cinema.Application.Controllers
         public IActionResult ValidaDeleteSessao(Sessao sessao)
         {
            return Execute(() => _sessaoService.ValidaDeleteSessao(sessao));
+        }
+
+        private IActionResult Execute(Func<object> func)
+        {
+            try
+            {
+                var result = func();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

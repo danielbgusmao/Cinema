@@ -1,7 +1,7 @@
-﻿using Cinema.Application.Models;
-using Cinema.Domain.Entities;
-using Cinema.Domain.Interfaces;
+﻿using Cinema.Application.Commands.Auth;
+using Cinema.Application.Models;
 using Cinema.Domain.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Application.Controllers
@@ -10,24 +10,18 @@ namespace Cinema.Application.Controllers
     [Route("[controller]")]
     public class LoginController : Controller
     {
-        private IUsuarioService _usuarioService;
-        private ITokenService _tokenService;
+        private readonly IMediator _mediator;
         
-        public LoginController(IUsuarioService usuarioService, ITokenService tokenService)
+        public LoginController(IMediator mediator)
         {
-            _usuarioService = usuarioService;
-            _tokenService = tokenService;
+            _mediator = mediator;
         }
 
         [HttpPost]
         public async Task<TokenResponse> AuthenticateAsync([FromBody] LoginModel usuario)
         {
-            Usuario usuarioDB = _usuarioService.GetByEmailSenha(usuario.Email, usuario.Senha);
-
-            if (usuarioDB == null)
-                return new TokenResponse();
-
-            var token = await _tokenService.GenerateToken(usuarioDB);
+            var command = new LoginCommand(usuario.Email, usuario.Senha);
+            var token = await _mediator.Send(command);
             return token;
         }
     }

@@ -1,10 +1,8 @@
-﻿using Cinema.Application.Models;
-using Cinema.Domain.Entities;
+﻿using Cinema.Application.Queries.Sala;
 using Cinema.Domain.Interfaces;
-using Cinema.Service.Validators;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Cinema.Application.Controllers
 {
@@ -12,41 +10,41 @@ namespace Cinema.Application.Controllers
     [Route("[controller]")]
     public class SalaController : ControllerBase
     {
+        private readonly IMediator _mediator;
         private readonly ISalaService _salaService;
 
-        public SalaController(ISalaService salaService)
+        public SalaController(IMediator mediator, ISalaService salaService)
         {
+            _mediator = mediator;
             _salaService = salaService;
         }
 
-
         [Authorize]
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             _salaService.VerificarEPopularTabela();
-            return Execute(() => _salaService.Get());
+            return await Execute(async () => await _mediator.Send(new GetAllSalasQuery()));
         }
-
 
         [Authorize]
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            return Execute(() => _salaService.GetById(id));
+            return await Execute(async () => await _mediator.Send(new GetSalaByIdQuery(id)));
         }
 
-        private IActionResult Execute(Func<object> func)
+        private async Task<IActionResult> Execute(Func<Task<object>> func)
         {
             try
             {
-                var result = func();
+                var result = await func();
 
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
     }

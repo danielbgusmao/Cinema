@@ -1,10 +1,10 @@
-﻿using Cinema.Application.Models;
+﻿using Cinema.Application.Commands.Usuario;
+using Cinema.Application.Models;
+using Cinema.Application.Queries.Usuario;
 using Cinema.Domain.Entities;
-using Cinema.Domain.Interfaces;
-using Cinema.Service.Validators;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Cinema.Application.Controllers
 {
@@ -12,37 +12,39 @@ namespace Cinema.Application.Controllers
     [Route("[controller]")]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioService _usuarioService;
+        private readonly IMediator _mediator;
 
-        public UsuarioController(IUsuarioService usuarioService)
+        public UsuarioController(IMediator mediator)
         {
-            _usuarioService = usuarioService;
+            _mediator = mediator;
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult Create([FromBody] Usuario usuario)
+        public async Task<IActionResult> Create([FromBody] Usuario usuario)
         {
             if (usuario.Id != Guid.Empty)
                 throw new Exception("UserID must be empty");
 
-            return Execute(() => _usuarioService.Insert(usuario));
+            var command = new CreateUsuarioCommand(usuario.Nome, usuario.Email, usuario.Senha);
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [HttpPut]
-        public IActionResult Update([FromBody] Usuario usuario)
+        public async Task<IActionResult> Update([FromBody] Usuario usuario)
         {
-            return Execute(() => _usuarioService.Update(usuario));
+            var command = new UpdateUsuarioCommand(usuario.Id, usuario.Nome, usuario.Email, usuario.Senha);
+            return await Execute(async () => await _mediator.Send(command));
         }
 
         [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            Execute(() =>
+            await Execute(async () =>
             {
-                _usuarioService.Delete(id);
+                await _mediator.Send(new DeleteUsuarioCommand(id));
                 return true;
             });
 
@@ -51,29 +53,29 @@ namespace Cinema.Application.Controllers
 
         [Authorize]
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Execute(() => _usuarioService.Get());
+            return await Execute(async () => await _mediator.Send(new GetAllUsuariosQuery()));
         }
 
         [Authorize]
         [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return Execute(() => _usuarioService.GetById(id));
+            return await Execute(async () => await _mediator.Send(new GetUsuarioByIdQuery(id)));
         }
 
-        private IActionResult Execute(Func<object> func)
+        private async Task<IActionResult> Execute(Func<Task<object>> func)
         {
             try
             {
-                var result = func();
+                var result = await func();
 
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
     }
