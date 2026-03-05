@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dVjmqKj01PmZyBNvbI84UtyorUp2FhhMJB57yHqM+aShc2o1qjGGSYzrTIacdQ2JYamkyKHU3D2G5HxEqXfOjA==",
+  "dgSpecHash": "KrWB2cvxkqg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Documents\\_GitHub\\Cinema\\Cinema.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\_GitHub\\Cinema\\Cinema.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\danie\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.33\\microsoft.windowsdesktop.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\danie\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.33\\microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\danie\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.33\\microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\danie\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.33\\microsoft.netcore.app.host.win-x64.6.0.33.nupkg.sha512"
+  ],
   "logs": []
 }

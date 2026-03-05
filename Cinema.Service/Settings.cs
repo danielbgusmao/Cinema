@@ -10,11 +10,9 @@ namespace Cinema
 
         public static class Database
         {
-            public static string host = "DANIEL-PC\\SQLEXPRESS";
+            public static string host = "Daniel-note\\SQLEXPRESS";
             public static string catalog = "cinema";
-            public static string username = "sa";
-            public static string password = "pescaria";
-            public static string SqlServer = "Data Source=" + Database.host + ";Initial Catalog=" + Database.catalog + "; user id=" + Database.username + ";password=" + Database.password + ";";
+            public static string SqlServer = "Data Source=" + Database.host + ";Initial Catalog=" + Database.catalog + ";Integrated Security=true;TrustServerCertificate=true;";
         }
 
     }

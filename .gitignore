@@ -348,3 +348,19 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# ASP.NET Core Development Settings
+Properties/launchSettings.json
+appsettings.Development.json
+appsettings.*.json
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Project User Settings
+*.csproj.user
+
+# Local environment files
+.env
+.env.local

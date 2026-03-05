@@ -10,3 +10,16 @@ C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Do
 C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\refint\Cinema.Domain.dll
 C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.pdb
 C:\Users\danie\Documents\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\ref\Cinema.Domain.dll
+C:\_GitHub\Cinema\Cinema.Domain\bin\Debug\net6.0\Cinema.Domain.deps.json
+C:\_GitHub\Cinema\Cinema.Domain\bin\Debug\net6.0\Cinema.Domain.dll
+C:\_GitHub\Cinema\Cinema.Domain\bin\Debug\net6.0\Cinema.Domain.pdb
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.csproj.AssemblyReference.cache
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.AssemblyInfoInputs.cache
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.AssemblyInfo.cs
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.csproj.CoreCompileInputs.cache
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.sourcelink.json
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.dll
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\refint\Cinema.Domain.dll
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\Cinema.Domain.pdb
+C:\_GitHub\Cinema\Cinema.Domain\obj\Debug\net6.0\ref\Cinema.Domain.dll
